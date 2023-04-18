@@ -29,5 +29,6 @@ try {
 function outerFunction() {
   function innerFunction() {
     const regexG = /vwx/g;
+    const unsafeRegex = /^(a|a)*$/g;
   }
 }
