@@ -5,7 +5,7 @@ import { z } from "https://deno.land/x/zod@v3.16.1/mod.ts";
 interface ASTRegex {
   type: "RegExpLiteral";
   pattern: string;
-  flag: string;
+  flag?: string;
 }
 
 function regexToString(regex: unknown): ASTRegex {
