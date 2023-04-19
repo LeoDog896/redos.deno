@@ -20,6 +20,7 @@ await new Command()
   })
   .action(async ({ ignore, ext }) => {
     let regexCount = 0;
+    let fileCount = 0;
 
     for await (const walkEntry of walk(Deno.cwd())) {
       if (!walkEntry.isFile) continue;
@@ -27,6 +28,7 @@ await new Command()
       if (!ext.includes(walkEntry.path.split(".").pop() ?? "")) continue;
 
       const regexes = getRegexes(await Deno.readTextFile(walkEntry.path));
+      fileCount++;
 
       for (const regex of regexes) {
         const flag = regex.flag ?? "";
@@ -51,6 +53,6 @@ await new Command()
       }
     }
 
-    console.log(`Checked ${regexCount} regex${regexCount === 1 ? "" : "es"}`);
+    console.log(`Checked ${regexCount} regex${regexCount === 1 ? "" : "es"} in ${fileCount} file${fileCount === 1 ? "" : "s"}`);
   })
   .parse();
