@@ -1,5 +1,5 @@
 {
-    "tasks": {
-        "install": "deno install -n redos -f -A ./index.ts"
-    }
+  "tasks": {
+    "install": "deno install -n redos -f -A ./index.ts"
+  }
 }

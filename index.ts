@@ -44,7 +44,7 @@ await new Command()
             `%cVulnerable Regex: %c/${regex.pattern}/${flag} %c(${relativeToCWD})`,
             "color: red",
             "color: reset",
-            "color: black"
+            "color: black",
           );
           checker(result.checker);
           console.log(`\tpattern: %c${result.attack.pattern}`, "color: red");
@@ -58,6 +58,10 @@ await new Command()
       }
     }
 
-    console.log(`Checked ${regexCount} regex${plural(regexCount, "es")} in ${fileCount} file${plural(fileCount, "s")}`);
+    console.log(
+      `Checked ${regexCount} regex${
+        plural(regexCount, "es")
+      } in ${fileCount} file${plural(fileCount, "s")}`,
+    );
   })
   .parse();
