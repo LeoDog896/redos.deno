@@ -1,6 +1,6 @@
-# redos
+# ReDoS
 
-check for redos vulnerabilities in your code.
+check for ReDoS vulnerabilities in your code.
 
 This internally uses [recheck](https://makenowjust-labs.github.io/recheck/) by
 [makenowjust](https://github.com/makenowjust).
