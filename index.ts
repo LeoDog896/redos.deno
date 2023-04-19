@@ -3,6 +3,8 @@ import { getRegexes } from "./lib.ts";
 import { Command } from "https://deno.land/x/cliffy@v0.25.7/command/mod.ts";
 import { walk } from "https://deno.land/std@0.184.0/fs/walk.ts";
 
+const plural = (count: number, suffix: string) => count === 1 ? "" : suffix;
+
 function checker(check: "fuzz" | "automaton") {
   console.log(
     `\tchecker: %c${check}`,
@@ -53,6 +55,6 @@ await new Command()
       }
     }
 
-    console.log(`Checked ${regexCount} regex${regexCount === 1 ? "" : "es"} in ${fileCount} file${fileCount === 1 ? "" : "s"}`);
+    console.log(`Checked ${regexCount} regex${plural(regexCount, "es")} in ${fileCount} file${plural(fileCount, "s")}`);
   })
   .parse();
