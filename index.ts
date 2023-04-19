@@ -77,7 +77,11 @@ for (const regex of regexes) {
     checker(result.checker);
     console.log(`\tpattern: %c${result.attack.pattern}`, "color: red");
   } else if (result.status === "unknown") {
-    // TODO
+    console.log(
+        `%cUnknown Regex: %c/${regex.pattern}/${flag}`,
+        "color: orange",
+        "color: black",
+    );
   }
 }
 
