@@ -29,6 +29,8 @@ await new Command()
       if (ignore?.includes(walkEntry.path)) continue;
       if (!ext.includes(walkEntry.path.split(".").pop() ?? "")) continue;
 
+      const relativeToCWD = walkEntry.path.replace(Deno.cwd(), "");
+
       const regexes = getRegexes(await Deno.readTextFile(walkEntry.path));
       fileCount++;
 
@@ -39,9 +41,10 @@ await new Command()
 
         if (result.status === "vulnerable") {
           console.log(
-            `%cVulnerable Regex: %c/${regex.pattern}/${flag}`,
+            `%cVulnerable Regex: %c/${regex.pattern}/${flag} %c(${relativeToCWD})`,
             "color: red",
-            "color: black",
+            "color: reset",
+            "color: black"
           );
           checker(result.checker);
           console.log(`\tpattern: %c${result.attack.pattern}`, "color: red");
