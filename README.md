@@ -11,7 +11,7 @@ your project.
 ## installation
 
 ```sh
-deno install -n redos -f -A https://raw.githubusercontent.com/LeoDog896/redos/main/index.ts
+deno install -n redos -f -A https://raw.githubusercontent.com/LeoDog896/redos.deno/main/index.ts
 ```
 
 ## usage
